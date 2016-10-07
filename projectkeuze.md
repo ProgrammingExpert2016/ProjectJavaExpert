@@ -2,7 +2,9 @@
 
 ## Groepsleden - Klas
 
+Daan Bergmans - 3AONc
 Arno Bruynseels - 3AONd
+Rolf Stifter - 3AONb
 
 ## Taalkeuze
 
