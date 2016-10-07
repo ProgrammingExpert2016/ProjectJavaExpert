@@ -3,6 +3,7 @@
 ## Groepsleden - Klas
 
 Arno Bruynseels - 3AONd
+Sander Elsen - 3AONc
 
 ## Taalkeuze
 
