@@ -318,10 +318,15 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 				}
 				
 				private boolean solve(int row, int col) 
-				{				
-					/*for (int i = 0; i < Integer.MAX_VALUE; i++) {
+				{			
+					
+					//Superl ong loop
+					/*for (int i = 0; i < Integer.MAX_VALUE; i++)
+				    {
 						System.out.println("test");
 					}*/
+					
+					
 					// If it has passed through all cells, start quitting
 					if (row == 9)
 					{
@@ -343,7 +348,7 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 					else
 					{
 						//Random numbers 1 - 9
-						Integer[] randoms = generateRandomNumbers();
+						int[] randoms = generateRandomNumbers();
 						
 						//Ga elk random nummer in de lijst af, tot er een oplossing is
 						for (int i = 0; i < 9; i++) 
@@ -677,20 +682,20 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 	 * Generate 9 unique random numbers.
 	 * @return array containing 9 random unique numbers.
 	 */
-	private Integer[] generateRandomNumbers() 
+	private int[] generateRandomNumbers() 
 	{
-		ArrayList<Integer> randoms = new ArrayList<Integer>();
-		//int[] randoms = new int[9];
+		//ArrayList<Integer> randoms = new ArrayList<Integer>();
+		int[] randoms = new int[9];
 		for (int i = 0; i < 9; i++)
 		{
-			//randoms[i] = i+1;
-			randoms.add(i + 1);
+			randoms[i] = i+1;
+			//randoms.add(i + 1);
 		}
 
-		//return randoms;
+		return randoms;
 		//Collections.shuffle(randoms);
 		
-		return randoms.toArray(new Integer[9]);
+		//return randoms.toArray(new Integer[9]);
 	}
 	
 	/**
