@@ -49,6 +49,8 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 	/** Contains integers representing values in cells. */
 	private int[][] cellValues;
 
+	private static int[] randoms = {1,2,3,4,5,6,7,8,9};
+	
 	/**
 	 * Constructor.
 	 * Set up the components and initialize Sudoku.
@@ -286,6 +288,7 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 	private int loopTeller = 0;
 	private int backTeller = 0;
 	private int solveTeller = 0;
+	private static ExecutorService threadPool = Executors.newFixedThreadPool(1);
 	
 	private void startSolving() throws HeadlessException, InterruptedException, ExecutionException
 	{
@@ -306,7 +309,7 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 		{
 			markAsPresetCells();
 			
-			ExecutorService threadPool = Executors.newFixedThreadPool(1);
+			
 			
 			Future<Boolean> isSolved = threadPool.submit(new Callable<Boolean>()
 			{
@@ -348,7 +351,7 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 					else
 					{
 						//Random numbers 1 - 9
-						int[] randoms = generateRandomNumbers();
+						//Integer[] randoms = generateRandomNumbers();
 						
 						//Ga elk random nummer in de lijst af, tot er een oplossing is
 						for (int i = 0; i < 9; i++) 
@@ -682,20 +685,21 @@ public class SudokuSolver extends JFrame implements ActionListener  {
 	 * Generate 9 unique random numbers.
 	 * @return array containing 9 random unique numbers.
 	 */
-	private int[] generateRandomNumbers() 
+	private Integer[] generateRandomNumbers() 
 	{
-		//ArrayList<Integer> randoms = new ArrayList<Integer>();
-		int[] randoms = new int[9];
+		ArrayList<Integer> randoms = new ArrayList<Integer>();
+		//int[] randoms = new int[9];
 		for (int i = 0; i < 9; i++)
 		{
-			randoms[i] = i+1;
-			//randoms.add(i + 1);
+			//randoms[i] = i+1;
+			randoms.add(i + 1);
+						
 		}
 
-		return randoms;
-		//Collections.shuffle(randoms);
+		//return randoms;
+		Collections.shuffle(randoms);
 		
-		//return randoms.toArray(new Integer[9]);
+		return randoms.toArray(new Integer[9]);
 	}
 	
 	/**
